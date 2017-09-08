@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div className="App">
 
-      <p>hi world</p>
+      <p>Tareas</p>
         <ul>
           {this.state.names.map(name =>
             <li >{name.id}  {name.titulo}</li>
