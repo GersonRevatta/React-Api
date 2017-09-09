@@ -24,28 +24,24 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-      <p>hi world</p>
-        <ul>
+      <Router>
+        <div>
+          <ul>
           {this.state.names.map(name =>
-            <li >{name.id}  {name.titulo}</li>
-          )}
-        </ul>
-      <p>
-        <Detalle></Detalle>
-      </p>
-        <p>hi</p>
-        <Router>
-            <div>
-              <h2>Accounts</h2>
-              <ul>
-                {this.state.names.map(name =>
-                <li ><Link to={name.titulo}>{name.titulo}</Link></li>)}                
-              </ul>
-
-              <Route path="/:id" component={Child}/>
-            </div>
+            <li><Link to={name.titulo} > {name.titulo}</Link></li>)}
+            <li><Link to="/one">Show all</Link></li>
+          </ul>
+          <Route path="/:id" component={Child}/>
+          <Route path="/one" render={() => (
+                  <div>
+                    {this.state.names.map(name =>
+                    <h5> Titulo: {name.titulo} <br/> {name.descripcion}</h5>
+                    )}
+                </div> 
+                  ) } />
+        </div>
       </Router>
+
       </div>
     );
   }
@@ -54,7 +50,7 @@ class App extends Component {
 const Child = ({ match }) => (
 
   <div>
-    <h3>ID: {match.params.id}</h3>
+    <h3>Tarea: {match.params.id}</h3>
   </div>
 )
 
