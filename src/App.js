@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       names: []
     }
-    axios.get('https://crud-in-rails-api.herokuapp.com/api/tareas')
+    axios.get('https://enigmatic-spire-64643.herokuapp.com/api/tareas')
       .then(response=>{
         /*console.log(response.data.data.titulo);*/
         this.setState({
